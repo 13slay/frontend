@@ -11,34 +11,37 @@ export async function queryCurrent() {
 }
 
 export async function queryProject() {
+  const basic = {
+    // 资产占比
+    asset: [
+      { type: 'government', name: '政府', ratio: 0.6 },
+      { type: 'community', name: '社会', ratio: 0.4 },
+    ],
+    process: {
+      percent: 0.76,
+      joined: 400,
+    },
+    target: 300000,
+    // 募集目标单位
+    unit: 'JC',
+    // token 总数
+    total: 10000,
+    // total 标示
+    code: 'KJT',
+    // 个人限购
+    limit: 100,
+  };
   return [
     {
+      ...basic,
       id: 'symc11',
       title: '幼儿园',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover01.jpg',
-      percent: 69,
       status: 'active',
       createdAt: '2018-09-28 12:20',
       subDescription:
         '万向创新城第一实验幼儿园，是高科技新城的重点幼儿园，建筑师试图通过设计的策略突破周边环境和建筑规范的双重限制，为孩子们营造一个城市中的理想空间。',
       crowdAddress: '0xd29D780122f61958C227286e288AA0d17f88323A',
-      // 资产占比
-      asset: [
-        { type: 'government', name: '政府', ratio: 0.4 },
-        { type: 'private', name: '企业', ratio: 0.4 },
-        { type: 'community', name: '社会', ratio: 0.2 },
-      ],
-      process: {
-        percent: 0.76,
-        joined: 400,
-      },
-      target: 300000,
-      // 募集目标单位
-      unit: 'JC',
-      // token 总数
-      total: 10000,
-      // 个人限购
-      limit: 100,
       detail: `
   ## 项目介绍
 
@@ -78,6 +81,7 @@ export async function queryProject() {
       `,
     },
     {
+      ...basic,
       id: 'symc12',
       title: '购物广场',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover02.jpg',
@@ -87,10 +91,14 @@ export async function queryProject() {
       subDescription:
         '万向中心购物广场，内容包括大型商业中心、城市步行街、五星级酒店、写字楼、公寓等，集购物、餐饮、文化、娱乐等多种功能于一体，形成独立的大型商圈。',
       asset: [],
-      process: {},
+      process: {
+        percent: 0.22,
+        joined: 400,
+      },
       target: 300000,
     },
     {
+      ...basic,
       id: 'symc13',
       title: '大剧院',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover04.jpg',
@@ -100,23 +108,30 @@ export async function queryProject() {
       subDescription:
         '万向城大剧院是城市新中轴线上的标志性建筑之一，是一座综合性表演艺术中心。建筑面积7.3万平方米，建筑总高度43.1米，三个排练厅（歌剧排练厅、芭蕾排练厅以及交响乐排练厅），满足各类演出的需求。',
       asset: [],
-      process: {},
+      process: {
+        percent: 0.62,
+        joined: 400,
+      },
       target: 300000,
     },
     {
+      ...basic,
       id: 'symc14',
       title: '购物公园',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover05.jpg',
-      percent: 80,
       status: 'active',
       createdAt: '2018-09-28 12:30',
       subDescription:
         '创新城森林购物公园，总建筑面积20万平方米。分两期开发，一、二期全面开业后将汇集近300家国际国内知名品牌商户，集购物、餐饮、娱乐休闲、儿童、运动、益智六大主题于一体',
       asset: [],
-      process: {},
+      process: {
+        percent: 0.66,
+        joined: 400,
+      },
       target: 300000,
     },
     {
+      ...basic,
       id: 'symc15',
       title: '游泳馆',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover03.jpg',
@@ -131,11 +146,9 @@ export async function queryProject() {
         { type: 'community', name: '社会', ratio: 0.2 },
       ],
       process: {
-        percent: 0.76,
+        percent: 0.26,
         joined: 400,
       },
-      // 募集目标
-      target: 100000,
     },
   ];
 }

@@ -55,7 +55,6 @@ export default {
       };
     },
     saveResult(state, action) {
-      console.log(action);
       return {
         ...state,
         result: action.payload,

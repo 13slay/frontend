@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
-import { Card, Icon, List, Avatar, Progress } from 'antd';
+import { Card, List, Progress } from 'antd';
 import moment from 'moment';
 import Link from 'umi/link';
 
-import AvatarList from '@/components/AvatarList';
 import Ellipsis from '@/components/Ellipsis';
 
 import styles from './ProjectList.less';
@@ -18,15 +17,11 @@ class CardList extends PureComponent {
     const { dispatch } = this.props;
     dispatch({
       type: 'project/fetchProjectList',
-      payload: {
-        count: 8,
-      },
     });
   }
 
   render() {
     const { list, loading } = this.props;
-    const ListContent = ({ data: { owner, createdAt, percent, status } }) => <div />;
     const cardList = list ? (
       <List
         rowKey="id"
@@ -47,8 +42,12 @@ class CardList extends PureComponent {
                 />
                 <div className={styles.cardItemContent}>
                   <br />
-                  <p>Begain time: {moment(item.createdAt).format('YYYY-MM-DD HH:mm')}</p>
-                  <Progress percent={item.percent} status={item.status} strokeWidth={6} />
+                  <p>开始时间: {moment(item.createdAt).format('YYYY-MM-DD HH:mm')}</p>
+                  <Progress
+                    percent={item.process.percent * 100}
+                    status={item.status}
+                    strokeWidth={6}
+                  />
                 </div>
               </Card>
             </Link>
@@ -68,7 +67,6 @@ class CardList extends PureComponent {
             <h1 style={{ fontSize: '3em', color: '#fff' }}>Own Your Smart City</h1>
           </div>
         </div>
-
         <div className={styles.cardList}>{cardList}</div>
       </div>
     );
