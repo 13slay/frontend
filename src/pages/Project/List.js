@@ -61,7 +61,7 @@ class CardList extends PureComponent {
         <div style={{ marginBottom: 32 }}>
           <img
             style={{ width: '100%', borderRadius: 3 }}
-            src="https://qqadapt.qpic.cn/txdocpic/0/3324f1d540955c7cb577c9f4c06c007d/0"
+            src="http://7xsuii.com1.z0.glb.clouddn.com/banner.jpg"
           />
           <div style={{ position: 'absolute', top: '240px', left: '80px' }}>
             <h1 style={{ fontSize: '3em', color: '#fff' }}>万向创新聚能城</h1>
