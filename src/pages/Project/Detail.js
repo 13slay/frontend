@@ -3,8 +3,8 @@ import router from 'umi/router';
 import { find, isEmpty } from 'lodash';
 import { connect } from 'dva';
 import moment from 'moment';
-import { Col, Row, Affix, Card, Button, InputNumber, Slider } from 'antd';
-import { Pie, MiniProgress } from '@/components/Charts';
+import { Col, Row, Affix, Card, Button, InputNumber, Slider, Tabs, Progress } from 'antd';
+import { Pie } from '@/components/Charts';
 import ReactMarkdonw from 'react-markdown';
 
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
@@ -70,16 +70,23 @@ class Detail extends PureComponent {
     return (
       <PageHeaderWrapper title={detail.name} style={{ marginLeft: 0, marginRight: 0 }}>
         <Row gutter={24}>
-          <Col xl={18}>
-            <Row gutter={24} style={{ marginBottom: 24 }}>
-              <Col xl={12}>
-                <Card title="Item information" bodyStyle={{ height: firstHeight }}>
-                  <p>Item Name: {detail.title}</p>
-                  <p>Item side: {detail.creator}</p>
-                </Card>
-              </Col>
-              <Col xl={12}>
-                <Card title="Investment proportion" bodyStyle={{ height: firstHeight, padding: 8 }}>
+          <Col xl={16}>
+            <Card title={detail.title} bodyStyle={{ padding: 0 }}>
+              <img
+                style={{ width: '100%' }}
+                src="http://7xsuii.com1.z0.glb.clouddn.com/cover01.jpg"
+              />
+            </Card>
+
+            <br />
+            <Card>
+              <Tabs defaultActiveKey="1" size="large">
+                <Tabs.TabPane tab="Project Information" key="1">
+                  <div className={styles.detail}>
+                    <ReactMarkdonw source={detail.detail} />
+                  </div>
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="Investment proportion" key="2">
                   <Pie
                     hasLegend
                     data={detail.asset.map(item => ({ x: item.name, y: item.ratio }))}
@@ -87,35 +94,20 @@ class Detail extends PureComponent {
                     lineWidth={1}
                     height={286}
                   />
-                </Card>
-              </Col>
-            </Row>
-            <Row style={{ marginBottom: 24 }}>
-              <Col xl={24}>
-                <Card title="Progress">
-                  <Row type="flex">
-                    <p>Number of Participants: {detail.process.joined}</p>
-                  </Row>
-                  <MiniProgress
-                    percent={detail.process.percent * 100}
-                    strokeWidth={8}
-                    target={80}
-                    color="#13C2C2"
-                  />
-                </Card>
-              </Col>
-            </Row>
-            <Card title="Item details">
-              <div className={styles.detail}>
-                <ReactMarkdonw source={detail.detail} />
-              </div>
+                </Tabs.TabPane>
+                <Tabs.TabPane tab="权益说明" key="3">
+                  <div className={styles.detail} />
+                </Tabs.TabPane>
+              </Tabs>
             </Card>
           </Col>
-          <Col xl={6}>
+          <Col xl={8}>
             <Affix offsetTop={64}>
               <Card title="Subscribe rights">
-                <p>Statement of rights: </p>
-                <p>Subscription quota: {detail.limit}</p>
+                <p>当前进度: </p>
+                <Progress percent={detail.percent} status={detail.status} strokeWidth={6} />
+                <br />
+                <p>认购限额: {detail.limit}</p>
                 <Row type="flex" justify="center" style={{ marginTop: 36 }}>
                   <Col style={{ flex: 8 }}>
                     <Slider
