@@ -33,6 +33,7 @@ export async function queryProject() {
         { type: 'private', ratio: 0.4 },
         { type: 'community', ratio: 0.2 },
       ],
+      process: 0.76,
       // 募集目标
       target: 100000,
       // 募集目标单位
