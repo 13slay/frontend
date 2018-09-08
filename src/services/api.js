@@ -32,7 +32,7 @@ export async function queryProject() {
     {
       id: 'symc11',
       title: '幼儿园',
-      logo: 'https://gw.alipayobjects.com/zos/rmsportal/RzwpdLnhmvDJToTdfDPe.png',
+      cover: 'https://qqadapt.qpic.cn/txdocpic/0/badb9b973bf3ec77d648de65ffeead73/0',
       href: 'http://baidu.com',
       percent: 69,
       status: 'active',
@@ -43,7 +43,7 @@ export async function queryProject() {
     {
       id: 'symc12',
       title: '办公楼',
-      logo: 'https://gw.alipayobjects.com/zos/rmsportal/RzwpdLnhmvDJToTdfDPe.png',
+      cover: 'https://qqadapt.qpic.cn/txdocpic/0/3b591ee7d721cf531ce0e74df74e153c/0',
       percent: 80,
       status: 'active',
       href: 'http://baidu.com',
@@ -54,7 +54,9 @@ export async function queryProject() {
     {
       id: 'symc1e',
       title: '火星第二基地附属医院',
+      cover: 'https://qqadapt.qpic.cn/txdocpic/0/801ceb32fc6d5bbcb2942a0a336f4b43/0',
       creator: '火星第二基地',
+      subDescription: '万向创新城大厦',
       // 资产占比
       asset: [
         { type: 'government', ratio: 0.4 },

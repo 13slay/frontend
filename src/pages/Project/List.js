@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
-import { Card, Button, Icon, List, Avatar, Progress } from 'antd';
+import { Card, Icon, List, Avatar, Progress } from 'antd';
 import moment from 'moment';
 import Link from 'umi/link';
 
+import AvatarList from '@/components/AvatarList';
 import Ellipsis from '@/components/Ellipsis';
-import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
 import styles from './ProjectList.less';
 
@@ -26,37 +26,51 @@ class CardList extends PureComponent {
 
   render() {
     const { list, loading } = this.props;
-    const ListContent = ({ data: { owner, createdAt, percent, status } }) => (
-      <div className={styles.listContent}>
-        <div className={styles.listContentItem}>
-          <span>开始时间</span>
-          <p>{moment(createdAt).format('YYYY-MM-DD HH:mm')}</p>
-        </div>
-        <div className={styles.listContentItem}>
-          <Progress percent={percent} status={status} strokeWidth={6} style={{ width: 180 }} />
-        </div>
-      </div>
-    );
+    const ListContent = ({ data: { owner, createdAt, percent, status } }) => <div />;
+    const cardList = list ? (
+      <List
+        rowKey="id"
+        loading={loading}
+        grid={{ gutter: 24, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+        dataSource={list}
+        renderItem={item => (
+          <List.Item>
+            <Link to={`/project/detail/${item.id}`}>
+              <Card
+                className={styles.card}
+                hoverable
+                cover={<img alt={item.title} src={item.cover} />}
+              >
+                <Card.Meta
+                  title={item.title}
+                  description={<Ellipsis lines={2}>{item.subDescription}</Ellipsis>}
+                />
+                <div className={styles.cardItemContent}>
+                  <br />
+                  <p>开始时间: {moment(item.createdAt).format('YYYY-MM-DD HH:mm')}</p>
+                  <Progress percent={item.percent} status={item.status} strokeWidth={6} />
+                </div>
+              </Card>
+            </Link>
+          </List.Item>
+        )}
+      />
+    ) : null;
     return (
-      <PageHeaderWrapper title="项目列表">
-        <List
-          size="large"
-          rowKey="id"
-          style={{ background: '#fff', padding: '16px' }}
-          loading={loading}
-          dataSource={list}
-          renderItem={item => (
-            <List.Item actions={[<Link to={`/project/detail/${item.id}`}>参投</Link>]}>
-              <List.Item.Meta
-                avatar={<Avatar src={item.logo} shape="square" size="large" />}
-                title={<a href={item.href}>{item.title}</a>}
-                description={item.subDescription}
-              />
-              <ListContent data={item} />
-            </List.Item>
-          )}
-        />
-      </PageHeaderWrapper>
+      <div>
+        <div style={{ marginBottom: 32 }}>
+          <img
+            style={{ width: '100%', borderRadius: 3 }}
+            src="https://qqadapt.qpic.cn/txdocpic/0/3324f1d540955c7cb577c9f4c06c007d/0"
+          />
+          <div style={{ position: 'absolute', top: '240px', left: '80px' }}>
+            <h1 style={{ fontSize: '3em', color: '#fff' }}>万向创新聚能城</h1>
+            <h1 style={{ fontSize: '3em', color: '#fff' }}>Own Your Smart City</h1>
+          </div>
+        </div>
+
+        <div className={styles.cardList}>{cardList}</div>
+      </div>
     );
   }
 }
