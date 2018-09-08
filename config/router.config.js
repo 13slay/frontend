@@ -17,7 +17,13 @@ export default [
     Routes: ['src/pages/Authorized'],
     routes: [
       // dashboard
-      { path: '/', redirect: '/project/list' },
+      { path: '/', redirect: '/' },
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        icon: 'table',
+        routes: [{ path: '/dashboard', name: 'name', component: '/Dashboard/index.js' }],
+      },
       {
         path: '/project',
         name: 'project',
