@@ -29,7 +29,7 @@ class CardList extends PureComponent {
         grid={{ gutter: 24, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
         dataSource={list}
         renderItem={item => (
-          <List.Item>
+          <List.Item style={{ height: 600 }}>
             <Link to={`/project/detail/${item.id}`}>
               <Card
                 className={styles.card}
