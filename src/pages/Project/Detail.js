@@ -73,7 +73,7 @@ class Detail extends PureComponent {
           <Col xl={16}>
             <Card title={detail.title} bodyStyle={{ padding: 0 }}>
               <img
-                style={{ width: '100%' }}
+                style={{ width: '100%', height: 600, objectFit: 'cover' }}
                 src="http://7xsuii.com1.z0.glb.clouddn.com/cover01.jpg"
               />
             </Card>
@@ -86,17 +86,41 @@ class Detail extends PureComponent {
                     <ReactMarkdonw source={detail.detail} />
                   </div>
                 </Tabs.TabPane>
-                <Tabs.TabPane tab="Investment proportion" key="2">
-                  <Pie
-                    hasLegend
-                    data={detail.asset.map(item => ({ x: item.name, y: item.ratio }))}
-                    valueFormat={item => item.ratio}
-                    lineWidth={1}
-                    height={286}
-                  />
+                <Tabs.TabPane tab="项目信息" key="2">
+                  <Row>
+                    <Col span={12}>
+                      <div style={{ display: 'flex', marginBottom: 24 }}>
+                        <span style={{ flex: '0 0 80px' }}>项目名称:</span>
+                        {detail.title}
+                      </div>
+                      <div style={{ display: 'flex', marginBottom: 24 }}>
+                        <span style={{ flex: '0 0 80px' }}>项目描述:</span>
+                        {detail.subDescription}
+                      </div>
+                      <div style={{ display: 'flex', marginBottom: 24 }}>
+                        <span style={{ flex: '0 0 80px' }}>开始时间:</span>
+                        {detail.createdAt}
+                      </div>
+                      <div style={{ display: 'flex', marginBottom: 24 }}>
+                        <span style={{ flex: '0 0 80px' }}>截止时间:</span>
+                        {detail.endAt}
+                      </div>
+                    </Col>
+                    <Col span={12}>
+                      <Pie
+                        hasLegend
+                        data={detail.asset.map(item => ({ x: item.name, y: item.ratio }))}
+                        valueFormat={item => item.ratio}
+                        lineWidth={1}
+                        height={286}
+                      />
+                    </Col>
+                  </Row>
                 </Tabs.TabPane>
                 <Tabs.TabPane tab="权益说明" key="3">
-                  <div className={styles.detail} />
+                  {detail.rules.map(item => (
+                    <p>{item}</p>
+                  ))}
                 </Tabs.TabPane>
               </Tabs>
             </Card>
@@ -104,28 +128,62 @@ class Detail extends PureComponent {
           <Col xl={8}>
             <Affix offsetTop={64}>
               <Card title="Subscribe rights">
-                <p>当前进度: </p>
-                <Progress percent={detail.percent} status={detail.status} strokeWidth={6} />
-                <br />
-                <p>认购限额: {detail.limit}</p>
-                <Row type="flex" justify="center" style={{ marginTop: 36 }}>
-                  <Col style={{ flex: 8 }}>
+                <div style={{ display: 'flex', marginBottom: 24 }}>
+                  <span style={{ flex: '0 0 80px' }}>凭证合约:</span>
+                  {detail.crowdAddress}
+                </div>
+                <div style={{ display: 'flex', marginBottom: 24 }}>
+                  <span style={{ flex: '0 0 80px' }}>凭证总额:</span>
+                  {detail.total}
+                </div>
+                <div style={{ display: 'flex', marginBottom: 24 }}>
+                  <span style={{ flex: '0 0 80px' }}>凭证标示:</span>
+                  {detail.code}
+                </div>
+                <div style={{ display: 'flex', marginBottom: 24 }}>
+                  <span style={{ flex: '0 0 80px' }}>认购单价:</span>
+                  {detail.price}
+                  {detail.unit}
+                </div>
+                <div style={{ display: 'flex', marginBottom: 24 }}>
+                  <span style={{ flex: '0 0 80px' }}>认购限额:</span>
+                  {detail.limit}
+                </div>
+                <div style={{ display: 'flex', marginBottom: 24 }}>
+                  <span style={{ flex: '0 0 80px' }}>当前进度:</span>
+                  <Progress
+                    percent={detail.process.percent * 100}
+                    status={detail.status}
+                    strokeWidth={6}
+                  />
+                </div>
+                <div style={{ marginTop: 36 }}>
+                  <div
+                    style={{
+                      width: '100%',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'stretch',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <span style={{ flex: '0 0 80px' }}>认购数量:</span>
                     <Slider
+                      style={{ flex: 9 }}
                       min={1}
                       max={detail.limit}
                       onChange={e => this.onChange(e)}
                       value={number}
                     />
-                  </Col>
-                  <Col style={{ flex: 4 }}>
                     <InputNumber
+                      style={{ flex: 3 }}
                       min={1}
                       max={detail.limit}
                       style={{ marginLeft: 16 }}
                       value={number}
                       onChange={e => this.onChange(e)}
                     />
-                  </Col>
+                  </div>
                   <Button
                     type="primary"
                     block
@@ -134,7 +192,7 @@ class Detail extends PureComponent {
                   >
                     Subscribe
                   </Button>
-                </Row>
+                </div>
               </Card>
             </Affix>
           </Col>

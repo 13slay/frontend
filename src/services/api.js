@@ -17,17 +17,20 @@ export async function queryProject() {
       { type: 'government', name: '政府', ratio: 0.6 },
       { type: 'community', name: '社会', ratio: 0.4 },
     ],
+    crowdAddress: '0xd29D780122f61958C227286e288AA0d17f88323A',
     process: {
       percent: 0.76,
       joined: 400,
     },
     target: 300000,
     // 募集目标单位
-    unit: 'JC',
+    unit: 'Smart_C',
     // token 总数
     total: 10000,
     // total 标示
     code: 'KJT',
+
+    price: 100,
     // 个人限购
     limit: 100,
   };
@@ -39,9 +42,17 @@ export async function queryProject() {
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover01.jpg',
       status: 'active',
       createdAt: '2018-09-28 12:20',
+      endAt: '2018-10-28 12:20',
       subDescription:
         '万向创新城第一实验幼儿园，是高科技新城的重点幼儿园，建筑师试图通过设计的策略突破周边环境和建筑规范的双重限制，为孩子们营造一个城市中的理想空间。',
       crowdAddress: '0xd29D780122f61958C227286e288AA0d17f88323A',
+      rules: [
+        '1. 本次募集面向全体合法公民。',
+        '2. 本次募集共发放10000分权益',
+        '3. 每位公民最多购买100分权益',
+        '4. 权益锁定2年，2年之后才能进入市场流通',
+        '5. 持有本权益3年并持有10份以上可以在该项目中享受学费减免, 学费减免只能使用一次，交易会重新计时',
+      ],
       detail: `
   ## 项目介绍
 
