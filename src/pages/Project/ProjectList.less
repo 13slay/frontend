@@ -3,13 +3,35 @@
 
 .cardList {
   margin-bottom: -24px;
-
+  .ant-spin-container{
+    background: #fff!important;
+  }
   .card {
     :global {
+
+      .listContent {
+        font-size: 0;
+        background: #fff;
+        .listContentItem {
+          //color: @text-color-secondary;
+          display: inline-block;
+          vertical-align: middle;
+          //font-size: @font-size-base;
+          margin-left: 40px;
+          > span {
+            line-height: 20px;
+          }
+          > p {
+            margin-top: 4px;
+            margin-bottom: 0;
+            line-height: 22px;
+          }
+        }
+      }
       .ant-card-meta-title {
         margin-bottom: 12px;
         & > a {
-          color: @heading-color;
+          //color: @heading-color;
           display: inline-block;
           max-width: 100%;
         }
@@ -19,7 +41,7 @@
       }
       .ant-card-body:hover {
         .ant-card-meta-title > a {
-          color: @primary-color;
+          //color: @primary-color;
         }
       }
     }
@@ -28,10 +50,32 @@
     height: 64px;
   }
 
-  :global {
-    .ant-list .ant-list-item-content-single {
-      max-width: 100%;
-    }
+}
+
+
+.headerInfo {
+  position: relative;
+  text-align: center;
+  & > span {
+    color: @text-color-secondary;
+    display: inline-block;
+    font-size: @font-size-base;
+    line-height: 22px;
+    margin-bottom: 4px;
+  }
+  & > p {
+    color: @heading-color;
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0;
+  }
+  & > em {
+    background-color: @border-color-split;
+    position: absolute;
+    height: 56px;
+    width: 1px;
+    top: 0;
+    right: 0;
   }
 }
 

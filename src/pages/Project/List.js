@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
-import { Card, Button, Icon, List } from 'antd';
+import { Card, Button, Icon, List, Avatar, Progress } from 'antd';
+import moment from 'moment';
+import Link from 'umi/link';
 
 import Ellipsis from '@/components/Ellipsis';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
@@ -21,9 +23,21 @@ class CardList extends PureComponent {
       },
     });
   }
-
+ 
   render() {
     const { list, loading } = this.props;
+    const ListContent = ({ data: { owner, createdAt, percent, status } }) => (
+      <div className={styles.listContent}>
+
+        <div className={styles.listContentItem}>
+          <span>开始时间</span>
+          <p>{moment(createdAt).format('YYYY-MM-DD HH:mm')}</p>
+        </div>
+        <div className={styles.listContentItem}>
+          <Progress percent={percent} status={status} strokeWidth={6} style={{ width: 180 }} />
+        </div>
+      </div>
+    );
     const extraContent = (
       <div className={styles.extraImg}>
         <img
@@ -32,12 +46,32 @@ class CardList extends PureComponent {
         />
       </div>
     );
-    const content = 'hello';
+    console.log('list:',list)
     return (
-      <PageHeaderWrapper title="卡片列表" content={content} extraContent={extraContent}>
-        {list.map(item => {
-          return <p>{item.name}</p>;
-        })}
+      <PageHeaderWrapper title="卡片列表"  extraContent={extraContent} >
+        <List
+          size="large"
+          rowKey="key"
+          style={{background: "#fff",padding: "16px"}}
+          loading={loading}
+          dataSource={list}
+          renderItem={item => (
+                        <List.Item
+                          actions={[
+                            <Link to='/project/detail/symc1e'>
+                              参投
+                            </Link>
+                          ]}
+                        >
+                          <List.Item.Meta
+                            avatar={<Avatar src={item.logo} shape="square" size="large" />}
+                            title={<a href={item.href}>{item.title}</a>}
+                            description={item.subDescription}
+                          />
+                          <ListContent data={item} />
+                        </List.Item>
+                      )}
+        />
       </PageHeaderWrapper>
     );
   }
