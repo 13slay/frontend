@@ -72,7 +72,7 @@ export async function queryProject() {
       limit: 100,
       members,
       detail: `
-##项目介绍
+## 项目介绍
 
 幼儿园建筑是住宅开发过程中必要的配套设施。在住宅货值最大化原则的驱动下，大部分幼儿园无法脱离被住宅挤压和被规范限制的双重困境，最终以妥协和消极的空间状态呈现。在上海一个典型别墅区环绕的不规则用地内，曼景建筑试图通过设计的策略突破周边环境和建筑规范的双重限制，为孩子们营造一个城市中的理想空间。幼儿园俯瞰形似“∞”，被称为∞幼儿园。
 
@@ -84,7 +84,7 @@ Kindergarten is a necessary supporting facility in the process of housing develo
 
 The irregular site of the kindergarten, the architect’s original intention of making it into a 1:1 building block and the idea of reducing the building from three floors to two floors for main structure and three floors for part of it so as to reduce the sense of pressure all cause that it will be a mission impossible through conventional spatial layout: the increase of building plan makes it hard to meet the requirements on greening area and activity space area; the irregular shape of the surrounding site is not conducive to the division of activity space by classes. The answer given by the architect is to use a floating classroom unit to make space for outdoor activity; the second-floor circular corridor forms stepped terrace as the hanging garden to increase the green area; a circular motif is used in the site with small margin to pave and form the activity space by classes, apparatus activity space, sand pool and runway, etc. The boundary of tangent ring naturally forms the circular washing basin into the garden, circular landscape path and the boundary of activity space. Simple and unified form operation brings about the least difference between functions and the possibility of mutual transformation. The unity of form weakens the position of form in design, so as to ensure that it has more compatible linkup with irregular terrain.
 
-##效果图展示
+## 效果图展示
 
 ![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd00.jpeg)
 
@@ -94,7 +94,7 @@ The irregular site of the kindergarten, the architect’s original intention of 
 
 ![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd04.jpeg)
 
-##设计图纸
+## 设计图纸
 
 ![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd0a.jpeg)
 
@@ -102,7 +102,7 @@ The irregular site of the kindergarten, the architect’s original intention of 
 
 ![cover](https://qqadapt.qpic.cn/txdocpic/0/9e55b3d29edd27f20fbf43997c8c2e41/0)
 
-##相关资质
+## 相关资质
 
 ![cover](https://qqadapt.qpic.cn/txdocpic/0/121b10e6cb1170f3604db1e8cadaf96b/0)
 

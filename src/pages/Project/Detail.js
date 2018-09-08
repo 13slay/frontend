@@ -67,7 +67,9 @@ class Detail extends PureComponent {
               </Col>
             </Row>
             <Card title="项目详情">
-              <ReactMarkdonw srouce={detail.detail} />
+              <div className={styles.detail}>
+                <ReactMarkdonw source={detail.detail} />
+              </div>
             </Card>
           </Col>
           <Col xl={6}>
