@@ -20,7 +20,7 @@ export default [
       { path: '/', redirect: '/' },
       {
         path: '/dashboard',
-        name: 'dashboard',
+        name: 'home',
         icon: 'table',
         routes: [{ path: '/dashboard', name: 'name', component: '/Dashboard/index.js' }],
       },
@@ -31,6 +31,7 @@ export default [
         routes: [
           { path: '/project/list', name: 'list', component: '/Project/list.js' },
           {
+            hideInMenu: true,
             path: '/project/detail/:id',
             name: 'detail',
             component: '/Project/Detail.js',
@@ -53,6 +54,16 @@ export default [
               },
             ],
           },
+        ],
+      },
+      {
+        hideInMenu: true,
+        name: 'result',
+        path: '/result',
+        routes: [
+          // result
+          { path: '/result/success', name: 'success', component: './Result/Success' },
+          { path: '/result/fail', name: 'fail', component: './Result/Error' },
         ],
       },
       {

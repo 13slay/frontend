@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
+import router from 'umi/router';
 import { find, isEmpty } from 'lodash';
 import { connect } from 'dva';
 import moment from 'moment';
-import { Col, Row, Affix, Card, Button, InputNumber } from 'antd';
+import { Col, Row, Affix, Card, Button, InputNumber, Slider } from 'antd';
 import { Pie, MiniProgress } from '@/components/Charts';
 import ReactMarkdonw from 'react-markdown';
 
@@ -18,22 +19,53 @@ const detailSelector = (id, list) => {
   detail: detailSelector(project.current, project.list),
 }))
 class Detail extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      number: 1,
+    };
+  }
   componentDidMount() {
     const { dispatch, match, list } = this.props;
     const { id } = match.params;
     if (isEmpty(list)) {
-      dispatch({
-        type: 'project/fetchProjectList',
-      });
+      dispatch({ type: 'project/fetchProjectList' });
     }
-    dispatch({
-      type: 'project/saveCurrent',
-      payload: id,
-    });
+    dispatch({ type: 'project/saveCurrent', payload: id });
   }
+
+  onChange = value => {
+    const { dispatch } = this.props;
+    this.dispatch({ type: saveNumber, payload: value });
+    this.setState({ number: value });
+  };
+
+  onBuy = () => {
+    const { dispatch, detail } = this.props;
+    const { number } = this.state;
+    const callback = (err, txHash) => {
+      if (err) {
+        dispatch({ type: 'saveResult', err });
+        router.push('/result/fail');
+        return false;
+      }
+      dispatch({ type: 'saveResult', payload: { txHash } });
+      router.push('/result/success');
+      return false;
+    };
+    dispatch({
+      type: 'project/buy',
+      payload: {
+        number,
+        crowdAddress: detail.crowdAddress,
+        callback,
+      },
+    });
+  };
 
   render() {
     const { detail, list } = this.props;
+    const { number } = this.state;
     const firstHeight = 300;
     if (!detail) return null;
     return (
@@ -85,12 +117,33 @@ class Detail extends PureComponent {
               <Card title="认购权益">
                 <p>权益说明: </p>
                 <p>认购限额: {detail.limit}</p>
-                <div>
-                  认购数量: <InputNumber />
-                </div>
-                <Button type="primary" block style={{ height: 48, fontSize: 18, marginTop: 36 }}>
-                  认购股权
-                </Button>
+                <Row type="flex" justify="center" style={{ marginTop: 36 }}>
+                  <Col style={{ flex: 8 }}>
+                    <Slider
+                      min={1}
+                      max={detail.limit}
+                      onChange={e => this.onChange(e)}
+                      value={number}
+                    />
+                  </Col>
+                  <Col style={{ flex: 4 }}>
+                    <InputNumber
+                      min={1}
+                      max={detail.limit}
+                      style={{ marginLeft: 16 }}
+                      value={number}
+                      onChange={e => this.onChange(e)}
+                    />
+                  </Col>
+                  <Button
+                    type="primary"
+                    block
+                    style={{ height: 48, fontSize: 18, marginTop: 16 }}
+                    onClick={this.onBuy}
+                  >
+                    认购股权
+                  </Button>
+                </Row>
               </Card>
             </Affix>
           </Col>

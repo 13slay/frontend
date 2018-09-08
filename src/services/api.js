@@ -54,6 +54,7 @@ export async function queryProject() {
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover03.jpg',
       creator: '火星第二基地',
       subDescription: '万向创新城游泳馆',
+      crowdAddress: '0xd29D780122f61958C227286e288AA0d17f88323A',
       // 资产占比
       asset: [
         { type: 'government', name: '政府', ratio: 0.4 },

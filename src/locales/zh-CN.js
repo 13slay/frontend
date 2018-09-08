@@ -2,10 +2,11 @@
 
 export default {
   'menu.dashboard': '首页',
-  'menu.dashboard.name': '总览',
+  'menu.home.name': '总览',
   'menu.project': '项目',
   'menu.project.list': '项目列表',
   'menu.project.detail': '项目详情',
+  'app.result.success.title': '股权认购成功',
 
   'navbar.lang': 'English',
   'menu.home': '首页',
@@ -139,7 +140,6 @@ export default {
   'app.result.error.hint-text2': '您的账户还不具备申请资格',
   'app.result.error.hint-btn2': '立即升级',
   'app.result.error.btn-text': '返回修改',
-  'app.result.success.title': '提交成功',
   'app.result.success.description':
     '提交结果页用于反馈一系列操作任务的处理结果， 如果仅是简单操作，使用 Message 全局提示反馈即可。 本文字区域可以展示简单的补充说明，如果有类似展示 “单据”的需求，下面这个灰色区域可以呈现比较复杂的内容。',
   'app.result.success.operate-title': '项目名称',
