@@ -17,44 +17,30 @@ export default [
     Routes: ['src/pages/Authorized'],
     routes: [
       // dashboard
-      { path: '/', redirect: '/' },
+      { path: '/', redirect: '/dashboard' },
       {
         path: '/dashboard',
         name: 'home',
-        icon: 'table',
-        routes: [{ path: '/dashboard', name: 'name', component: '/Dashboard/index.js' }],
+        icon: 'home',
+        component: '/Dashboard/index.js',
       },
       {
         path: '/project',
         name: 'project',
-        icon: 'table',
-        routes: [
-          { path: '/project/list', name: 'list', component: '/Project/list.js' },
-          {
-            hideInMenu: true,
-            path: '/project/detail/:id',
-            name: 'detail',
-            component: '/Project/Detail.js',
-          },
-        ],
+        icon: 'pie-chart',
+        component: '/Project/list.js',
       },
       {
         name: 'account',
         icon: 'user',
         path: '/account',
-        routes: [
-          {
-            path: '/account/center',
-            name: 'center',
-            component: './Account/Center/Center',
-            routes: [
-              {
-                path: '/account/center',
-                redirect: '/account/center/articles',
-              },
-            ],
-          },
-        ],
+        component: './Account/Center/Center',
+      },
+      {
+        hideInMenu: true,
+        path: '/project/detail/:id',
+        name: 'detail',
+        component: '/Project/Detail.js',
       },
       {
         hideInMenu: true,

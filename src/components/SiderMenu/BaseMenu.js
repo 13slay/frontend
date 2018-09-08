@@ -98,7 +98,14 @@ export default class BaseMenu extends PureComponent {
         </SubMenu>
       );
     }
-    return <Menu.Item key={item.path}>{this.getMenuItemPath(item)}</Menu.Item>;
+    return (
+      <Menu.Item
+        style={{ height: '100%', paddingTop: '12px', backgroundColor: 'transparent' }}
+        key={item.path}
+      >
+        {this.getMenuItemPath(item)}
+      </Menu.Item>
+    );
   };
 
   /**
