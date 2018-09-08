@@ -1,23 +1,6 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
 /** hackhone */
-const members = [
-  {
-    avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ZiESqWwCXBRQoaPONSJe.png',
-    name: '曲丽丽',
-    id: 'member1',
-  },
-  {
-    avatar: 'https://gw.alipayobjects.com/zos/rmsportal/tBOxZPlITHqwlGjsJWaF.png',
-    name: '王昭君',
-    id: 'member2',
-  },
-  {
-    avatar: 'https://gw.alipayobjects.com/zos/rmsportal/sBxjgqiuHMGRkIjqlQCd.png',
-    name: '董娜娜',
-    id: 'member3',
-  },
-];
 
 export async function queryCurrent() {
   return {
@@ -32,29 +15,45 @@ export async function queryProject() {
     {
       id: 'symc11',
       title: '幼儿园',
-      logo: 'https://gw.alipayobjects.com/zos/rmsportal/RzwpdLnhmvDJToTdfDPe.png',
-      href: 'http://baidu.com',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover01.jpg',
       percent: 69,
       status: 'active',
       createdAt: '2018-09-28 12:20',
-      subDescription: '万向创新城第一附属幼儿园',
-      members,
+      subDescription: '万向创新城第一实验幼儿园',
     },
     {
       id: 'symc12',
-      title: '办公楼',
-      logo: 'https://gw.alipayobjects.com/zos/rmsportal/RzwpdLnhmvDJToTdfDPe.png',
+      title: '购物广场',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover02.jpg',
       percent: 80,
       status: 'active',
-      href: 'http://baidu.com',
       createdAt: '2018-09-28 12:30',
-      subDescription: '万向创新城大厦',
-      members,
+      subDescription: '万向中心购物广场',
     },
     {
-      id: 'symc1e',
-      title: '火星第二基地附属医院',
+      id: 'symc13',
+      title: '大剧院',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover04.jpg',
+      percent: 80,
+      status: 'active',
+      createdAt: '2018-09-28 12:30',
+      subDescription: '万向城大剧院',
+    },
+    {
+      id: 'symc14',
+      title: '购物公园',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover05.jpg',
+      percent: 80,
+      status: 'active',
+      createdAt: '2018-09-28 12:30',
+      subDescription: '创新城森林购物公园',
+    },
+    {
+      id: 'symc15',
+      title: '游泳馆',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover03.jpg',
       creator: '火星第二基地',
+      subDescription: '万向创新城游泳馆',
       // 资产占比
       asset: [
         { type: 'government', name: '政府', ratio: 0.4 },
@@ -73,7 +72,6 @@ export async function queryProject() {
       total: 10000,
       // 个人限购
       limit: 100,
-      members,
       detail: `
   ## 项目介绍
 
@@ -101,15 +99,13 @@ export async function queryProject() {
 
   ![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd0a.jpeg)
 
-  ![cover](https://qqadapt.qpic.cn/txdocpic/0/fab9afd29ef2488abc47bdc7db81f779/0)
+![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd0b.png)
 
-  ![cover](https://qqadapt.qpic.cn/txdocpic/0/9e55b3d29edd27f20fbf43997c8c2e41/0)
+![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd0c.png)
 
   ## 相关资质
 
-  ![cover](https://qqadapt.qpic.cn/txdocpic/0/121b10e6cb1170f3604db1e8cadaf96b/0)
-
-  ![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd06.jpeg)
+![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd06.jpeg)
       `,
     },
   ];
