@@ -31,6 +31,7 @@ export default class TopNavHeader extends PureComponent {
           className={`${styles.main} ${contentWidth === 'Fixed' ? styles.wide : ''}`}
         >
           <div className={styles.left}>
+            <img src={logo} alt="logo" style={{ height: 40, marginTop: 12 }} />
             <div className={styles.logo} key="logo" id="logo">
               <Link to="/">
                 <h1>Own Your Smart City</h1>

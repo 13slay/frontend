@@ -107,6 +107,7 @@ export default class SiderMenu extends PureComponent {
         theme={theme}
         className={siderClassName}
       >
+        <img src={logo} alt="logo" style={{ height: 40, marginTop: 12 }} />
         <div className={styles.logo} id="logo">
           <Link to="/">
             <h1>Own Your Smart City</h1>

@@ -20,40 +20,6 @@ export async function queryProject() {
       status: 'active',
       createdAt: '2018-09-28 12:20',
       subDescription: '万向创新城第一实验幼儿园',
-    },
-    {
-      id: 'symc12',
-      title: '购物广场',
-      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover02.jpg',
-      percent: 80,
-      status: 'active',
-      createdAt: '2018-09-28 12:30',
-      subDescription: '万向中心购物广场',
-    },
-    {
-      id: 'symc13',
-      title: '大剧院',
-      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover04.jpg',
-      percent: 80,
-      status: 'active',
-      createdAt: '2018-09-28 12:30',
-      subDescription: '万向城大剧院',
-    },
-    {
-      id: 'symc14',
-      title: '购物公园',
-      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover05.jpg',
-      percent: 80,
-      status: 'active',
-      createdAt: '2018-09-28 12:30',
-      subDescription: '创新城森林购物公园',
-    },
-    {
-      id: 'symc15',
-      title: '游泳馆',
-      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover03.jpg',
-      creator: '火星第二基地',
-      subDescription: '万向创新城游泳馆',
       crowdAddress: '0xd29D780122f61958C227286e288AA0d17f88323A',
       // 资产占比
       asset: [
@@ -65,8 +31,7 @@ export async function queryProject() {
         percent: 0.76,
         joined: 400,
       },
-      // 募集目标
-      target: 100000,
+      target: 300000,
       // 募集目标单位
       unit: 'JC',
       // token 总数
@@ -106,8 +71,66 @@ export async function queryProject() {
 
   ## 相关资质
 
+![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd05.png)
+
 ![cover](http://7xsuii.com1.z0.glb.clouddn.com/kd06.jpeg)
       `,
+    },
+    {
+      id: 'symc12',
+      title: '购物广场',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover02.jpg',
+      percent: 80,
+      status: 'active',
+      createdAt: '2018-09-28 12:30',
+      subDescription: '万向中心购物广场',
+      asset: [],
+      process: {},
+      target: 300000,
+    },
+    {
+      id: 'symc13',
+      title: '大剧院',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover04.jpg',
+      percent: 80,
+      status: 'active',
+      createdAt: '2018-09-28 12:30',
+      subDescription: '万向城大剧院',
+      asset: [],
+      process: {},
+      target: 300000,
+    },
+    {
+      id: 'symc14',
+      title: '购物公园',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover05.jpg',
+      percent: 80,
+      status: 'active',
+      createdAt: '2018-09-28 12:30',
+      subDescription: '创新城森林购物公园',
+      asset: [],
+      process: {},
+      target: 300000,
+    },
+    {
+      id: 'symc15',
+      title: '游泳馆',
+      cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover03.jpg',
+      percent: 76,
+      creator: '火星第二基地',
+      subDescription: '万向创新城游泳馆',
+      // 资产占比
+      asset: [
+        { type: 'government', name: '政府', ratio: 0.4 },
+        { type: 'private', name: '企业', ratio: 0.4 },
+        { type: 'community', name: '社会', ratio: 0.2 },
+      ],
+      process: {
+        percent: 0.76,
+        joined: 400,
+      },
+      // 募集目标
+      target: 100000,
     },
   ];
 }
