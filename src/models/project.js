@@ -22,7 +22,7 @@ export default {
     saveProjectList(state, action) {
       return {
         ...state,
-        project: action.payload,
+        list: action.payload,
       };
     },
     saveCurrent(state, action) {
