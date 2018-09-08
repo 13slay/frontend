@@ -36,7 +36,7 @@ class Detail extends PureComponent {
 
   onChange = value => {
     const { dispatch } = this.props;
-    this.dispatch({ type: saveNumber, payload: value });
+    dispatch({ type: 'saveNumber', payload: value });
     this.setState({ number: value });
   };
 
@@ -45,13 +45,12 @@ class Detail extends PureComponent {
     const { number } = this.state;
     const callback = (err, txHash) => {
       if (err) {
-        dispatch({ type: 'saveResult', err });
+        dispatch({ type: 'project/saveResult', payload: err });
         router.push('/result/fail');
         return false;
       }
-      dispatch({ type: 'saveResult', payload: { txHash } });
+      dispatch({ type: 'project/saveResult', payload: { txHash } });
       router.push('/result/success');
-      return false;
     };
     dispatch({
       type: 'project/buy',
