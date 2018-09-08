@@ -23,7 +23,7 @@ class CardList extends PureComponent {
       },
     });
   }
- 
+
   render() {
     const { list, loading } = this.props;
     const ListContent = ({ data: { owner, createdAt, percent, status } }) => (
@@ -48,7 +48,7 @@ class CardList extends PureComponent {
     );
     console.log('list:',list)
     return (
-      <PageHeaderWrapper title="卡片列表"  extraContent={extraContent} >
+      <PageHeaderWrapper title="项目列表" >
         <List
           size="large"
           rowKey="key"
