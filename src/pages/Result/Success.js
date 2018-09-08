@@ -12,7 +12,7 @@ const actions = (
     <Button
       type="primary"
       onClick={() => {
-        router.push('/project/list');
+        router.push('/project');
       }}
     >
       <FormattedMessage id="app.result.success.btn-return" defaultMessage="Back to list" />
