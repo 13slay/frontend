@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { find, isEmpty } from 'lodash';
 import { connect } from 'dva';
+import moment from 'moment';
 import { Col, Row, Affix, Card, Button, InputNumber } from 'antd';
 import { Pie, MiniProgress } from '@/components/Charts';
 import ReactMarkdonw from 'react-markdown';
@@ -33,32 +34,39 @@ class Detail extends PureComponent {
 
   render() {
     const { detail, list } = this.props;
+    const firstHeight = 300;
     if (!detail) return null;
     return (
       <PageHeaderWrapper title={detail.name} style={{ marginLeft: 0, marginRight: 0 }}>
         <Row gutter={24}>
           <Col xl={18}>
             <Row gutter={24} style={{ marginBottom: 24 }}>
-              <Col xl={8}>
-                <Card title="项目信息">
+              <Col xl={12}>
+                <Card title="项目信息" bodyStyle={{ height: firstHeight }}>
                   <p>项目名称: {detail.title}</p>
                   <p>项目方: {detail.creator}</p>
                 </Card>
               </Col>
-              <Col xl={8}>
-                <Card title="投资比例">
+              <Col xl={12}>
+                <Card title="投资比例" bodyStyle={{ height: firstHeight, padding: 8 }}>
                   <Pie
                     hasLegend
-                    data={detail.asset.map(item => ({ x: item.type, y: item.ratio }))}
+                    data={detail.asset.map(item => ({ x: item.name, y: item.ratio }))}
                     valueFormat={item => item.ratio}
-                    lineWidth={4}
+                    lineWidth={1}
+                    height={286}
                   />
                 </Card>
               </Col>
-              <Col xl={8}>
+            </Row>
+            <Row style={{ marginBottom: 24 }}>
+              <Col xl={24}>
                 <Card title="募集进度">
+                  <Row type="flex">
+                    <p>已参与人数: {detail.process.joined}</p>
+                  </Row>
                   <MiniProgress
-                    percent={detail.process * 100}
+                    percent={detail.process.percent * 100}
                     strokeWidth={8}
                     target={80}
                     color="#13C2C2"
@@ -80,7 +88,7 @@ class Detail extends PureComponent {
                 <div>
                   认购数量: <InputNumber />
                 </div>
-                <Button type="primary" block style={{ height: 56, fontSize: 18, marginTop: 36 }}>
+                <Button type="primary" block style={{ height: 48, fontSize: 18, marginTop: 36 }}>
                   认购股权
                 </Button>
               </Card>
