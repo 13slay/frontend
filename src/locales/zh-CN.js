@@ -1,6 +1,10 @@
 // import zhMessages from '../../locales/zh.json';
 
 export default {
+  'menu.project': '普惠项目',
+  'menu.project.list': '项目列表',
+  'menu.project.detail': '项目详情',
+
   'navbar.lang': 'English',
   'menu.home': '首页',
   'menu.dashboard': 'Dashboard',
@@ -14,7 +18,6 @@ export default {
   'menu.form.stepform.confirm': '分步表单（确认转账信息）',
   'menu.form.stepform.result': '分步表单（完成）',
   'menu.form.advancedform': '高级表单',
-  'menu.list': '列表页',
   'menu.list.searchtable': '查询表格',
   'menu.list.basiclist': '标准列表',
   'menu.list.cardlist': '卡片列表',
