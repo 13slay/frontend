@@ -47,7 +47,7 @@ class CardList extends PureComponent {
                 />
                 <div className={styles.cardItemContent}>
                   <br />
-                  <p>开始时间: {moment(item.createdAt).format('YYYY-MM-DD HH:mm')}</p>
+                  <p>Begain time: {moment(item.createdAt).format('YYYY-MM-DD HH:mm')}</p>
                   <Progress percent={item.percent} status={item.status} strokeWidth={6} />
                 </div>
               </Card>
@@ -64,7 +64,7 @@ class CardList extends PureComponent {
             src="http://7xsuii.com1.z0.glb.clouddn.com/banner.jpg"
           />
           <div style={{ position: 'absolute', top: '240px', left: '80px' }}>
-            <h1 style={{ fontSize: '3em', color: '#fff' }}>万向创新聚能城</h1>
+            <h1 style={{ fontSize: '3em', color: '#fff' }}>Wanxiang Innova City</h1>
             <h1 style={{ fontSize: '3em', color: '#fff' }}>Own Your Smart City</h1>
           </div>
         </div>

@@ -73,13 +73,13 @@ class Detail extends PureComponent {
           <Col xl={18}>
             <Row gutter={24} style={{ marginBottom: 24 }}>
               <Col xl={12}>
-                <Card title="项目信息" bodyStyle={{ height: firstHeight }}>
-                  <p>项目名称: {detail.title}</p>
-                  <p>项目方: {detail.creator}</p>
+                <Card title="Item information" bodyStyle={{ height: firstHeight }}>
+                  <p>Item Name: {detail.title}</p>
+                  <p>Item side: {detail.creator}</p>
                 </Card>
               </Col>
               <Col xl={12}>
-                <Card title="投资比例" bodyStyle={{ height: firstHeight, padding: 8 }}>
+                <Card title="Investment proportion" bodyStyle={{ height: firstHeight, padding: 8 }}>
                   <Pie
                     hasLegend
                     data={detail.asset.map(item => ({ x: item.name, y: item.ratio }))}
@@ -92,9 +92,9 @@ class Detail extends PureComponent {
             </Row>
             <Row style={{ marginBottom: 24 }}>
               <Col xl={24}>
-                <Card title="募集进度">
+                <Card title="Progress">
                   <Row type="flex">
-                    <p>已参与人数: {detail.process.joined}</p>
+                    <p>Number of Participants: {detail.process.joined}</p>
                   </Row>
                   <MiniProgress
                     percent={detail.process.percent * 100}
@@ -105,7 +105,7 @@ class Detail extends PureComponent {
                 </Card>
               </Col>
             </Row>
-            <Card title="项目详情">
+            <Card title="Item details">
               <div className={styles.detail}>
                 <ReactMarkdonw source={detail.detail} />
               </div>
@@ -113,9 +113,9 @@ class Detail extends PureComponent {
           </Col>
           <Col xl={6}>
             <Affix offsetTop={64}>
-              <Card title="认购权益">
-                <p>权益说明: </p>
-                <p>认购限额: {detail.limit}</p>
+              <Card title="Subscribe rights">
+                <p>Statement of rights: </p>
+                <p>Subscription quota: {detail.limit}</p>
                 <Row type="flex" justify="center" style={{ marginTop: 36 }}>
                   <Col style={{ flex: 8 }}>
                     <Slider
@@ -140,7 +140,7 @@ class Detail extends PureComponent {
                     style={{ height: 48, fontSize: 18, marginTop: 16 }}
                     onClick={this.onBuy}
                   >
-                    认购股权
+                    Subscribe
                   </Button>
                 </Row>
               </Card>
