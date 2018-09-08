@@ -1,7 +1,6 @@
 // import zhMessages from '../../locales/zh.json';
 
 export default {
-  'menu.dashboard': '首页',
   'menu.home.name': '总览',
   'menu.project': '项目',
   'menu.project.list': '项目列表',

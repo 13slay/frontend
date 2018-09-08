@@ -1,4 +1,10 @@
 export default {
+  'menu.home.name': '总览',
+  'menu.project': 'Project',
+  'menu.project.list': '项目列表',
+  'menu.project.detail': '项目详情',
+  'app.result.success.title': '股权认购成功',
+
   'navbar.lang': '中文',
   'menu.home': 'Home',
   'menu.dashboard': 'Dashboard',
