@@ -46,7 +46,12 @@ export default [
         icon: 'table',
         routes: [
           { path: '/project/list', name: 'list', component: '/Project/list.js' },
-          { path: '/project/detail', name: 'detail', component: '/Project/detail.js' },
+          {
+            noShow: true,
+            path: '/project/detail/:id',
+            name: 'detail',
+            component: '/Project/Detail.js',
+          },
         ],
       },
       {

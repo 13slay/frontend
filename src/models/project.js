@@ -28,7 +28,7 @@ export default {
     saveCurrent(state, action) {
       return {
         ...state,
-        current: action.current,
+        current: action.payload,
       };
     },
   },
