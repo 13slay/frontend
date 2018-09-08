@@ -1,5 +1,4 @@
 import { queryProject } from '@/services/api';
-import { promisify } from 'es6-promisify';
 
 const buy = (number, crowdAddress, callback) => {
   if (!web3) {
