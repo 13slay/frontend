@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { find, isEmpty } from 'lodash';
 import { connect } from 'dva';
-import { Col, Row, Affix, Card, Button, Icon, List } from 'antd';
+import { Col, Row, Affix, Card, Button, InputNumber } from 'antd';
 import { Pie, MiniProgress } from '@/components/Charts';
+import ReactMarkdonw from 'react-markdown';
 
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
@@ -65,13 +66,18 @@ class Detail extends PureComponent {
                 </Card>
               </Col>
             </Row>
-            <Card title="项目详情">{detail.detail}</Card>
+            <Card title="项目详情">
+              <ReactMarkdonw srouce={detail.detail} />
+            </Card>
           </Col>
           <Col xl={6}>
             <Affix offsetTop={64}>
               <Card title="认购权益">
                 <p>权益说明: </p>
-                <p>认购数量: {detail.total}</p>
+                <p>认购限额: {detail.limit}</p>
+                <div>
+                  认购数量: <InputNumber />
+                </div>
                 <Button type="primary" block style={{ height: 56, fontSize: 18, marginTop: 36 }}>
                   认购股权
                 </Button>

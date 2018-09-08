@@ -19,6 +19,14 @@ const members = [
   },
 ];
 
+export async function queryCurrent() {
+  return {
+    name: '李狗蛋',
+    account: web3.eth.coinbase,
+    avatar: 'https://gw.alipayobjects.com/zos/rmsportal/sBxjgqiuHMGRkIjqlQCd.png',
+  };
+}
+
 export async function queryProject() {
   return [
     {
