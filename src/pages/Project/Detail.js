@@ -81,28 +81,28 @@ class Detail extends PureComponent {
             <br />
             <Card>
               <Tabs defaultActiveKey="1" size="large">
-                <Tabs.TabPane tab="项目详情" key="1">
+                <Tabs.TabPane tab="Project Details" key="1">
                   <div className={styles.detail}>
                     <ReactMarkdonw source={detail.detail} />
                   </div>
                 </Tabs.TabPane>
-                <Tabs.TabPane tab="项目信息" key="2">
+                <Tabs.TabPane tab="Project Information" key="2">
                   <Row>
                     <Col span={12}>
                       <div style={{ display: 'flex', marginBottom: 24 }}>
-                        <span style={{ flex: '0 0 80px' }}>项目名称:</span>
+                        <span style={{ flex: '0 0 80px' }}>Project Name:</span>
                         {detail.title}
                       </div>
                       <div style={{ display: 'flex', marginBottom: 24 }}>
-                        <span style={{ flex: '0 0 80px' }}>项目描述:</span>
+                        <span style={{ flex: '0 0 80px' }}>Description:</span>
                         {detail.subDescription}
                       </div>
                       <div style={{ display: 'flex', marginBottom: 24 }}>
-                        <span style={{ flex: '0 0 80px' }}>开始时间:</span>
+                        <span style={{ flex: '0 0 80px' }}>Start:</span>
                         {detail.createdAt}
                       </div>
                       <div style={{ display: 'flex', marginBottom: 24 }}>
-                        <span style={{ flex: '0 0 80px' }}>截止时间:</span>
+                        <span style={{ flex: '0 0 80px' }}>End:</span>
                         {detail.endAt}
                       </div>
                     </Col>
@@ -117,7 +117,7 @@ class Detail extends PureComponent {
                     </Col>
                   </Row>
                 </Tabs.TabPane>
-                <Tabs.TabPane tab="权益说明" key="3">
+                <Tabs.TabPane tab="Investor Benefits" key="3">
                   {detail.rules.map((item, index) => (
                     <p key={'rules-tab-' + index}>{item}</p>
                   ))}
@@ -127,30 +127,30 @@ class Detail extends PureComponent {
           </Col>
           <Col xl={8}>
             <Affix offsetTop={64}>
-              <Card title="权益认购">
+              <Card title="Subscription">
                 <div style={{ display: 'flex', marginBottom: 24 }}>
-                  <span style={{ flex: '0 0 80px' }}>凭证合约:</span>
+                  <span style={{ flex: '0 0 80px' }}>Contract:</span>
                   {detail.crowdAddress}
                 </div>
                 <div style={{ display: 'flex', marginBottom: 24 }}>
-                  <span style={{ flex: '0 0 80px' }}>凭证总额:</span>
+                  <span style={{ flex: '0 0 80px' }}>Total Amount:</span>
                   {detail.total}
                 </div>
                 <div style={{ display: 'flex', marginBottom: 24 }}>
-                  <span style={{ flex: '0 0 80px' }}>凭证标示:</span>
+                  <span style={{ flex: '0 0 80px' }}>Symbol:</span>
                   {detail.code}
                 </div>
                 <div style={{ display: 'flex', marginBottom: 24 }}>
-                  <span style={{ flex: '0 0 80px' }}>认购单价:</span>
+                  <span style={{ flex: '0 0 80px' }}>Price:</span>
                   {detail.price}
                   {detail.unit}
                 </div>
                 <div style={{ display: 'flex', marginBottom: 24 }}>
-                  <span style={{ flex: '0 0 80px' }}>认购限额:</span>
+                  <span style={{ flex: '0 0 80px' }}>Limit:</span>
                   {detail.limit}
                 </div>
                 <div style={{ display: 'flex', marginBottom: 24 }}>
-                  <span style={{ flex: '0 0 80px' }}>当前进度:</span>
+                  <span style={{ flex: '0 0 80px' }}>Progress:</span>
                   <Progress
                     percent={detail.process.percent * 100}
                     status={detail.status}
@@ -167,7 +167,7 @@ class Detail extends PureComponent {
                       alignItems: 'center',
                     }}
                   >
-                    <span style={{ flex: '0 0 80px' }}>认购数量:</span>
+                    <span style={{ flex: '0 0 80px' }}>Number of Shares:</span>
                     <Slider
                       style={{ flex: 9 }}
                       min={1}

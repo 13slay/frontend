@@ -14,8 +14,8 @@ export async function queryProject() {
   const basic = {
     // 资产占比
     asset: [
-      { type: 'government', name: '政府', ratio: 0.6 },
-      { type: 'community', name: '社会', ratio: 0.4 },
+      { type: 'government', name: 'Government', ratio: 0.6 },
+      { type: 'community', name: 'Community', ratio: 0.4 },
     ],
     crowdAddress: '0xd29D780122f61958C227286e288AA0d17f88323A',
     process: {
@@ -45,7 +45,7 @@ export async function queryProject() {
     {
       ...basic,
       id: 'symc11',
-      title: '幼儿园',
+      title: 'Kindergarten',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover01.jpg',
       status: 'active',
       createdAt: '2018-09-28 12:20',
@@ -94,7 +94,7 @@ export async function queryProject() {
     {
       ...basic,
       id: 'symc12',
-      title: '购物广场',
+      title: 'Park',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover02.jpg',
       percent: 100,
       status: 'active',
@@ -111,7 +111,7 @@ export async function queryProject() {
     {
       ...basic,
       id: 'symc13',
-      title: '大剧院',
+      title: 'Theater',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover04.jpg',
       percent: 20,
       status: 'active',
@@ -128,7 +128,7 @@ export async function queryProject() {
     {
       ...basic,
       id: 'symc14',
-      title: '购物公园',
+      title: 'Shopping Mall',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover05.jpg',
       status: 'active',
       createdAt: '2018-09-28 12:30',
@@ -144,7 +144,7 @@ export async function queryProject() {
     {
       ...basic,
       id: 'symc15',
-      title: '游泳馆',
+      title: 'Pool',
       cover: 'http://7xsuii.com1.z0.glb.clouddn.com/cover03.jpg',
       percent: 38,
       creator: '火星第二基地',

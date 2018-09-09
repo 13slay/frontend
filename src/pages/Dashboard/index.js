@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import img_1 from '@/assets/dashboard_1.png';
+import img from '@/assets/dashboard.png';
 
-const cover = [{ src: img_1 }];
+const cover = [{ src: img }, { src: img_1 }];
 
 const CoverItem = props => {
   console.log(props);
@@ -9,12 +10,11 @@ const CoverItem = props => {
     <div
       style={{
         width: '100%',
-        height: '80vh',
+        height: 'calc(100vh - 60px)',
         backgroundImage: `url(${props.src}`,
         backgroundSize: '100% auto',
-        backgroundPosition: 'center',
+        backgroundPosition: 'cover',
         backgroundRepeat: 'no-repeat',
-        marginBottom: 36,
       }}
     />
   );
@@ -23,7 +23,7 @@ const CoverItem = props => {
 class Dashboard extends PureComponent {
   render() {
     return (
-      <div>
+      <div style={{ margin: -30 }}>
         {cover.map(item => (
           <CoverItem src={item.src} key={item.src} />
         ))}
