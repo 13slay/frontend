@@ -167,7 +167,7 @@ class Detail extends PureComponent {
                       alignItems: 'center',
                     }}
                   >
-                    <span style={{ flex: '0 0 80px' }}>Number of Shares:</span>
+                    <span style={{ flex: '0 0 80px' }}>Number:</span>
                     <Slider
                       style={{ flex: 9 }}
                       min={1}
