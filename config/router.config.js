@@ -31,6 +31,7 @@ export default [
         component: '/Project/list.js',
       },
       {
+        hideInMenu: true,
         name: 'account',
         icon: 'user',
         path: '/account',

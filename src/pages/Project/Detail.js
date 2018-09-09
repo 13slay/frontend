@@ -81,7 +81,7 @@ class Detail extends PureComponent {
             <br />
             <Card>
               <Tabs defaultActiveKey="1" size="large">
-                <Tabs.TabPane tab="Project Information" key="1">
+                <Tabs.TabPane tab="项目详情" key="1">
                   <div className={styles.detail}>
                     <ReactMarkdonw source={detail.detail} />
                   </div>
@@ -118,8 +118,8 @@ class Detail extends PureComponent {
                   </Row>
                 </Tabs.TabPane>
                 <Tabs.TabPane tab="权益说明" key="3">
-                  {detail.rules.map(item => (
-                    <p>{item}</p>
+                  {detail.rules.map((item, index) => (
+                    <p key={'rules-tab-' + index}>{item}</p>
                   ))}
                 </Tabs.TabPane>
               </Tabs>
@@ -127,7 +127,7 @@ class Detail extends PureComponent {
           </Col>
           <Col xl={8}>
             <Affix offsetTop={64}>
-              <Card title="Subscribe rights">
+              <Card title="权益认购">
                 <div style={{ display: 'flex', marginBottom: 24 }}>
                   <span style={{ flex: '0 0 80px' }}>凭证合约:</span>
                   {detail.crowdAddress}

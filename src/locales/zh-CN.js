@@ -4,7 +4,7 @@ export default {
   'menu.home.name': '总览',
   'menu.project': '项目',
   'menu.project.list': '项目列表',
-  'menu.project.detail': '项目详情',
+  'menu.detail': '项目详情',
   'app.result.success.title': '股权认购成功',
 
   'navbar.lang': 'English',

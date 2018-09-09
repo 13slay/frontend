@@ -1,11 +1,7 @@
 import React, { PureComponent } from 'react';
+import img_1 from '@/assets/dashboard_1.png';
 
-const cover = [
-  { src: ' http://7xsuii.com1.z0.glb.clouddn.com/kd01.jpeg ' },
-  { src: ' http://7xsuii.com1.z0.glb.clouddn.com/kd01.jpeg ' },
-  { src: ' http://7xsuii.com1.z0.glb.clouddn.com/kd01.jpeg ' },
-  { src: ' http://7xsuii.com1.z0.glb.clouddn.com/kd01.jpeg ' },
-];
+const cover = [{ src: img_1 }];
 
 const CoverItem = props => {
   console.log(props);
@@ -15,7 +11,9 @@ const CoverItem = props => {
         width: '100%',
         height: '80vh',
         backgroundImage: `url(${props.src}`,
-        backgroundSize: 'center',
+        backgroundSize: '100% auto',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         marginBottom: 36,
       }}
     />
